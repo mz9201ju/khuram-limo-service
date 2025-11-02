@@ -1,11 +1,15 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import doger1 from "../../assets/doger1.jpg";
+import doger2 from "../../assets/doger2.jpg";
 
 /**
  * Slide images - replace with your hosted assets for production
  */
 const slideImages = [
+    doger1,
+    doger2,
     "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80",
     "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_7-Series_%28G70%29_750e_1X7A2460.jpg/2560px-BMW_7-Series_%28G70%29_750e_1X7A2460.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/6/69/2023_Cadillac_Lyriq_side.jpg",

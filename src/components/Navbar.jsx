@@ -68,7 +68,7 @@ export default function Navbar() {
                 <Link to="/" className="flex items-center gap-2">
                     <img src={logo} alt="LuxRide" className="h-10 w-auto" />
                     <span className="text-gold font-playfair text-2xl font-bold tracking-wide">
-                        Khuram LuxRide
+                        NYC LUX RIDES
                     </span>
                 </Link>
 
