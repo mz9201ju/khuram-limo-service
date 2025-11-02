@@ -10,7 +10,7 @@ export default function Contact() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert("✅ Thank you for contacting LuxRide! We'll reach out shortly.");
+        alert("✅ Thank you for contacting NYC LUX RIDES! We'll reach out shortly.");
         setForm({ name: "", email: "", message: "" });
     };
 
