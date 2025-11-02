@@ -31,7 +31,6 @@ const serviceData = [
 export default function Services() {
     return (
         <section className="services-section">
-            <CarGallery />
             <h2 className="section-title">Our Luxury Services</h2>
             <div className="service-grid">
                 {serviceData.map((service, i) => (
@@ -41,6 +40,7 @@ export default function Services() {
                     </div>
                 ))}
             </div>
+            <CarGallery />
         </section>
     );
 }
