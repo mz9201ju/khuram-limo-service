@@ -33,6 +33,7 @@ Message: ${message}`;
         }
 
         setLoading(true);
+
         try {
             const payload = { phone: TARGET_PHONE, text: buildMessage(form), redirect: false };
 
@@ -51,13 +52,18 @@ Message: ${message}`;
             }
 
             const { waUrl } = await res.json();
+            console.log("waUrl ->", waUrl);
+
             if (!waUrl) throw new Error("No waUrl returned");
 
-            window.open(waUrl, "_blank", "noopener,noreferrer");
+            // NAVIGATE IN THE SAME TAB (mobile-friendly)
+            // Use assign so back button behavior remains intuitive.
+            window.location.assign(waUrl);
+
             setForm({ name: "", email: "", message: "" });
         } catch (err) {
             console.error("Contact submit error:", err);
-            alert("Failed to open WhatsApp: " + err.message);
+            alert("Failed to open WhatsApp: " + (err?.message || "Unknown error"));
         } finally {
             setLoading(false);
         }
@@ -72,7 +78,7 @@ Message: ${message}`;
                     style={{ maxWidth: "100%", height: "auto", borderRadius: 8, marginBottom: 18 }}
                     onError={(e) => {
                         e.currentTarget.onerror = null;
-                        e.currentTarget.src = "/hero-luxury.jpg";
+                        e.currentTarget.src = "heroImg";
                     }}
                 />
 

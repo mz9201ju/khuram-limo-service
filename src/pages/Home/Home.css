@@ -165,7 +165,6 @@
     inset: -10%;
     /* extend slightly so zoom doesn't reveal edges */
     z-index: -1;
-    background-image: url("/assets/hero-luxury.jpg");
     /* host in /assets for reliability */
     background-size: cover;
     background-position: center 35%;
