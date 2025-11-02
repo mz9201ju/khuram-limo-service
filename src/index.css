@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+
+body {
+  @apply bg-dark text-white font-inter;
+}
+
+a {
+  @apply text-[#C5A572] hover:text-white transition-colors;
+}
+
+h1,
+h2,
+h3 {
+  @apply font-playfair;
+}

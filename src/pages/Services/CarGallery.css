@@ -1,0 +1,120 @@
+/* layout */
+.car-gallery {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #fff;
+    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.cg-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+/* grid */
+.cg-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    align-items: stretch;
+}
+
+/* card (thumbnail behind name) */
+.cg-card {
+    height: 110px;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 280ms cubic-bezier(.2, .9, .2, 1), box-shadow 280ms;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+}
+
+/* dark gradient overlay done inline in style in component; still keep a subtle layer */
+.cg-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.46));
+    pointer-events: none;
+    mix-blend-mode: multiply;
+}
+
+/* name */
+.cg-card-name {
+    z-index: 2;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+    padding: 6px 10px;
+    backdrop-filter: blur(2px);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.18);
+}
+
+/* hover */
+.cg-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6);
+}
+
+/* modal overlay */
+.cg-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 2000;
+    padding: 24px;
+}
+
+/* modal body */
+.cg-modal-body {
+    max-width: 92%;
+    max-height: 86%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* image */
+.cg-modal-image {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+    object-fit: contain;
+    background: #111;
+}
+
+/* caption */
+.cg-caption {
+    margin-top: 10px;
+    color: #ddd;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/* small screens tweak */
+@media (max-width: 480px) {
+    .cg-card {
+        height: 95px;
+    }
+
+    .cg-title {
+        font-size: 1.1rem;
+    }
+}
