@@ -1,4 +1,5 @@
 import { useState } from "react";
+import doger1 from "../../assets/doger1.jpg";
 import "./CarGallery.css";
 
 const fallbackImage =
@@ -55,6 +56,10 @@ const cars = [
         name: "Full-Size Bus",
         img: "https://images.pexels.com/photos/18029614/pexels-photo-18029614.jpeg"
         // 🔄 Placeholder: modern white coach / tour bus. Pexels lists this as free use. :contentReference[oaicite:5]{index=5}
+    },
+    {
+        name: "Doger 1 - Premium Ride",
+        img: doger1
     },
 ];
 
