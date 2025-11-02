@@ -97,7 +97,7 @@ export default function Navbar() {
                             href="tel:+19294622366"
                             className="text-gold font-semibold text-sm hover:text-white transition"
                         >
-                            929-462-2366
+                            +1 (929)-462-2366
                         </a>
                         <div className="flex gap-3 text-gray-300 text-lg">
                             <a
@@ -164,10 +164,10 @@ export default function Navbar() {
                         </Link>
                     ))}
                     <a
-                        href="tel:+18004515466"
+                        href="tel:+19294622366"
                         className="block py-3 text-gold font-semibold hover:text-white transition"
                     >
-                        800-451-5466
+                        +1 (929)-462-2366
                     </a>
                     <div className="flex justify-center gap-5 py-3 text-lg">
                         <a
