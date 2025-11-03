@@ -3,7 +3,7 @@ import "./Checkout.css";
 
 const SANDBOX_CLIENT_ID =
     import.meta.env.VITE_PAYPAL_CLIENT_ID ||
-    "";
+    "AWBTZt1fzqyA2fOlvCBUs0Dfj5wVPk3UAGbQM4e7m3wjVR9jeyb7E8BHI4dtsLWx2HdY9sUmmftjTJGb";
 
 export default function Checkout() {
     useEffect(() => {
@@ -63,10 +63,12 @@ export default function Checkout() {
                         const capData = await capture.json();
                         console.log("💰 Capture result:", capData);
 
-                        if (capData.captured) {
-                            window.location.href =
-                                "https://mz9201ju.github.io/khuram-limo-service/success.html";
+                        // Ensure payment is captured before redirect
+                        if (capData.status === "COMPLETED") {
+                            console.log("✅ Payment successfully captured.");
+                            window.location.href = "https://mz9201ju.github.io/khuram-limo-service/success.html";
                         } else {
+                            console.error("❌ Payment failed or pending.");
                             alert("Payment pending or failed. Please try again.");
                         }
                     },
