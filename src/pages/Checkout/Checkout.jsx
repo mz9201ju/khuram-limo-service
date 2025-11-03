@@ -9,11 +9,14 @@ export default function Checkout() {
     useEffect(() => {
         const WORKER_URL = "https://paypal-worker.omer-mnsu.workers.dev";
 
-        // Prevent double-loading across route transitions
+        // Load PayPal SDK once per session
         if (!window.__PAYPAL_LOADED__) {
             const script = document.createElement("script");
             script.id = "paypal-sdk";
-            script.src = `https://www.paypal.com/sdk/js?client-id=${SANDBOX_CLIENT_ID}&currency=USD&intent=capture`;
+            script.src =
+                `https://www.paypal.com/sdk/js?client-id=${SANDBOX_CLIENT_ID}` +
+                `&currency=USD&intent=capture&components=buttons,funding-eligibility` +
+                `&enable-funding=card,venmo,paylater&disable-funding=sepa,bancontact`;
             script.onload = () => {
                 window.__PAYPAL_LOADED__ = true;
                 initPayPal();
@@ -21,31 +24,24 @@ export default function Checkout() {
             script.onerror = () => console.error("⚠️ Failed to load PayPal SDK");
             document.body.appendChild(script);
         } else {
-            initPayPal(); // already loaded once
+            initPayPal();
         }
 
-        function initPayPal() {
-            // Wait until SDK is ready
+        async function initPayPal(attempt = 1) {
             if (!window.paypal) {
-                console.warn("⏳ Waiting for PayPal SDK...");
-                setTimeout(initPayPal, 250);
+                if (attempt < 10) setTimeout(() => initPayPal(attempt + 1), 300);
+                else console.error("PayPal SDK failed to load");
                 return;
             }
 
             const container = document.getElementById("paypal-button-container");
             if (!container) return;
-
-            // Clear old buttons before re-rendering
             container.innerHTML = "";
 
             paypal
                 .Buttons({
-                    style: {
-                        shape: "pill",
-                        color: "gold",
-                        layout: "vertical",
-                        label: "paypal",
-                    },
+                    style: { shape: "pill", color: "gold", layout: "vertical", label: "paypal" },
+                    fundingSource: undefined, // show all buttons (PayPal, Card, Pay Later)
                     createOrder: async () => {
                         const res = await fetch(`${WORKER_URL}/create-order`, {
                             method: "POST",
@@ -56,24 +52,36 @@ export default function Checkout() {
                         console.log("✅ Order created:", data);
                         return data.order?.id;
                     },
-                    onApprove: (data) => {
+                    onApprove: async (data) => {
                         console.log("✅ Payment approved:", data);
-                        window.location.href = `${WORKER_URL}/paypal-return?token=${data.orderID}&PayerID=${data.payerID}`;
+                        // Auto-capture through worker
+                        const capture = await fetch(`${WORKER_URL}/capture-order`, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ orderId: data.orderID }),
+                        });
+                        const capData = await capture.json();
+                        console.log("💰 Capture result:", capData);
+
+                        if (capData.captured) {
+                            window.location.href =
+                                "https://mz9201ju.github.io/khuram-limo-service/success.html";
+                        } else {
+                            alert("Payment pending or failed. Please try again.");
+                        }
                     },
                     onError: (err) => {
                         console.error("❌ PayPal error:", err);
+                        alert("There was an issue processing your payment.");
                     },
                 })
                 .render(container);
         }
 
-        // 🧹 Cleanup on unmount (leave checkout)
+        // Cleanup on route change
         return () => {
             const container = document.getElementById("paypal-button-container");
             if (container) container.innerHTML = "";
-            // Note: We do *not* remove the SDK script now.
-            // We mark it as loaded once (window.__PAYPAL_LOADED__) so it won’t reload.
-            // This avoids the PayPal "listener already exists" bug.
         };
     }, []);
 
