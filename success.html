@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Successful | Limo Service</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #1c1c1c, #2e2e2e);
+            color: #fff;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Success Box */
+        .success-container {
+            background: #121212;
+            border: 2px solid #00c853;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(0, 255, 128, 0.3);
+            max-width: 420px;
+            text-align: center;
+            padding: 40px 30px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .checkmark {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            background: #00c853;
+            margin-bottom: 25px;
+        }
+
+        .checkmark::after {
+            content: "";
+            position: absolute;
+            left: 30px;
+            top: 50px;
+            width: 20px;
+            height: 45px;
+            border-right: 6px solid #fff;
+            border-bottom: 6px solid #fff;
+            transform: rotate(45deg);
+            animation: drawCheck 0.6s ease forwards;
+        }
+
+        h1 {
+            margin: 10px 0;
+            font-size: 28px;
+            color: #00ff99;
+        }
+
+        p {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .button {
+            margin-top: 25px;
+            padding: 12px 25px;
+            border: none;
+            background: #00c853;
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .button:hover {
+            background: #00e676;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes drawCheck {
+            0% {
+                opacity: 0;
+                transform: rotate(45deg) scale(0.8);
+            }
+
+            100% {
+                opacity: 1;
+                transform: rotate(45deg) scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="success-container">
+        <div class="checkmark"></div>
+        <h1>Payment Successful</h1>
+        <p>Thank you for your payment! Your transaction has been completed successfully.<br>
+            You’ll receive a confirmation email shortly.</p>
+        <button class="button" onclick="window.location.href='/'">Return to Home</button>
+    </div>
+</body>
+
+</html>
