@@ -3,7 +3,7 @@ import "./Checkout.css";
 
 const SANDBOX_CLIENT_ID =
     import.meta.env.VITE_PAYPAL_CLIENT_ID ||
-    "AWBTZt1fzqyA2fOlvCBUs0Dfj5wVPk3UAGbQM4e7m3wjVR9jeyb7E8BHI4dtsLWx2HdY9sUmmftjTJGb";
+    "";
 
 export default function Checkout() {
     useEffect(() => {
