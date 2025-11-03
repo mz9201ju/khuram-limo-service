@@ -4,6 +4,7 @@ import "./Checkout.css";
 const SANDBOX_CLIENT_ID =
     import.meta.env.VITE_PAYPAL_CLIENT_ID ||
     "";
+const SQUARE_APPLICATION_ID = import.meta.env.VITE_SQUARE_APPLICATION_ID || ""; // Replace with your Square application ID
 
 export default function Checkout() {
     useEffect(() => {
@@ -16,7 +17,7 @@ export default function Checkout() {
             script.src =
                 `https://www.paypal.com/sdk/js?client-id=${SANDBOX_CLIENT_ID}` +
                 `&currency=USD&intent=capture&components=buttons,funding-eligibility` +
-                `&enable-funding=card,venmo,paylater&disable-funding=sepa,bancontact`;
+                `&enable-funding=card,venmo,paylater,applepay&disable-funding=sepa,bancontact`;
             script.onload = () => {
                 window.__PAYPAL_LOADED__ = true;
                 initPayPal();
@@ -25,6 +26,24 @@ export default function Checkout() {
             document.body.appendChild(script);
         } else {
             initPayPal();
+        }
+
+        // Load Square SDK for Square payments
+        if (window.Square && SQUARE_APPLICATION_ID) {
+            const squareButtonContainer = document.getElementById("square-button-container");
+            if (!squareButtonContainer) return;
+
+            const payments = window.Square.payments(SQUARE_APPLICATION_ID);
+            payments.requestCardPayment()
+                .then((paymentRequest) => {
+                    const button = document.createElement("button");
+                    button.innerText = "Pay with Square";
+                    button.addEventListener("click", () => {
+                        paymentRequest.startPayment();
+                    });
+                    squareButtonContainer.appendChild(button);
+                })
+                .catch((error) => console.error("Error initializing Square payment:", error));
         }
 
         async function initPayPal(attempt = 1) {
@@ -41,7 +60,7 @@ export default function Checkout() {
             paypal
                 .Buttons({
                     style: { shape: "pill", color: "gold", layout: "vertical", label: "paypal" },
-                    fundingSource: undefined, // show all buttons (PayPal, Card, Pay Later)
+                    fundingSource: undefined, // Show all buttons (PayPal, Card, Pay Later, Apple Pay)
                     createOrder: async () => {
                         const res = await fetch(`${WORKER_URL}/create-order`, {
                             method: "POST",
@@ -84,14 +103,18 @@ export default function Checkout() {
         return () => {
             const container = document.getElementById("paypal-button-container");
             if (container) container.innerHTML = "";
+
+            const squareButtonContainer = document.getElementById("square-button-container");
+            if (squareButtonContainer) squareButtonContainer.innerHTML = "";
         };
     }, []);
 
     return (
         <div className="checkout-page">
             <h1>Complete Your Booking</h1>
-            <p>Secure your luxury ride with PayPal below.</p>
+            <p>Secure your luxury ride with PayPal, Apple Pay, and Square below.</p>
             <div id="paypal-button-container" className="paypal-container"></div>
+            <div id="square-button-container" className="square-container"></div>
         </div>
     );
 }
