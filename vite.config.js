@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  base: '/khuram-limo-service/',   // <--- add this
+  base: '/',   // <--- add this
   plugins: [react()],
   build: {
     assetsDir: 'assets',
@@ -15,5 +15,12 @@ export default defineConfig({
         assetFileNames: 'assets/[name].[hash].[ext]'
       }
     }
-  }
+  },
+  server: {
+    historyApiFallback: false,
+    fs: { strict: false },
+  },
+  preview: {
+    historyApiFallback: true, // ✅ Works for vite preview (SPA routing)
+  },
 });
