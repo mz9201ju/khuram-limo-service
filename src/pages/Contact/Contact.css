@@ -123,4 +123,50 @@
     background: white;
 }
 
-.bg-layer { object-fit: cover; object-position: center; }
+.bg-layer {
+    object-fit: cover;
+    object-position: center;
+}
+
+/* === External Buttons (Book & Quote) === */
+.external-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    /* allows stacking on smaller screens */
+}
+
+.external-buttons .whatsapp-button {
+    flex: 1;
+    max-width: 220px;
+    /* keeps buttons consistent width */
+    background-color: #c7a166;
+    /* match your gold tone */
+    color: #000;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.external-buttons .whatsapp-button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Stack vertically on small screens */
+@media (max-width: 600px) {
+    .external-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .external-buttons .whatsapp-button {
+        width: 100%;
+        max-width: 100%;
+    }
+}

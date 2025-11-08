@@ -3,13 +3,10 @@ import { useState } from "react";
 import "./Contact.css";
 import heroImg from "../../assets/logo.png"; // ensure this exists in src/assets
 
-// Production build-time values injected by Vite via GitHub Actions (VITE_* secrets).
-// These must be set in your Actions workflow: VITE_WHATS_URL and VITE_WHATS_SECRET.
-const WORKER_URL = import.meta.env.VITE_WHATS_URL || "https://whatsapp-redirect-worker.omer-mnsu.workers.dev";
+const WORKER_URL =
+    import.meta.env.VITE_WHATS_URL ||
+    "https://whatsapp-redirect-worker.omer-mnsu.workers.dev";
 const SECRET = import.meta.env.VITE_WHATS_SECRET || "";
-
-// NOTE: SECRET will be baked into the client bundle at build time. This makes it discoverable.
-// If you want the secret to remain private in production, use a server-side relay instead.
 
 export default function Contact() {
     const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -17,7 +14,8 @@ export default function Contact() {
 
     const TARGET_PHONE = "19294622366"; // E.164 digits-only
 
-    const handleChange = (e) => setForm((s) => ({ ...s, [e.target.name]: e.target.value }));
+    const handleChange = (e) =>
+        setForm((s) => ({ ...s, [e.target.name]: e.target.value }));
 
     const buildMessage = ({ name, email, message }) =>
         `New contact from website
@@ -75,20 +73,75 @@ Message: ${message}`;
                 <img
                     src={heroImg}
                     alt="Logo"
-                    style={{ maxWidth: "100%", height: "auto", borderRadius: 8, marginBottom: 18 }}
+                    style={{
+                        maxWidth: "100%",
+                        height: "auto",
+                        borderRadius: 8,
+                        marginBottom: 18,
+                    }}
                     onError={(e) => {
                         e.currentTarget.onerror = null;
                         e.currentTarget.src = "heroImg";
                     }}
                 />
 
+                {/* === NEW BUTTONS ABOVE "Get in Touch" === */}
+                <div className="external-buttons">
+                    <button
+                        onClick={() =>
+                            window.open(
+                                "https://booking.empirecls.com/Webconnect/DefaultV2/Booking",
+                                "_blank"
+                            )
+                        }
+                        className="whatsapp-button"
+                    >
+                        Book a Ride
+                    </button>
+
+                    <button
+                        onClick={() =>
+                            window.open(
+                                "https://booking.empirecls.com/Webconnect/DefaultV2/PriceQuote",
+                                "_blank"
+                            )
+                        }
+                        className="whatsapp-button"
+                    >
+                        Get Price Quote
+                    </button>
+                </div>
+
                 <h2>Get in Touch</h2>
-                <p>Have a question or want to make a reservation? Fill out the form and our concierge will assist you right away.</p>
+                <p>
+                    Have a question or want to make a reservation? Fill out the form and our
+                    concierge will assist you right away.
+                </p>
 
                 <form onSubmit={handleSubmit}>
-                    <input name="name" value={form.name} onChange={handleChange} placeholder="Your Name" required />
-                    <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="Email Address" required />
-                    <textarea name="message" value={form.message} onChange={handleChange} placeholder="Your Message" rows="4" required />
+                    <input
+                        name="name"
+                        value={form.name}
+                        onChange={handleChange}
+                        placeholder="Your Name"
+                        required
+                    />
+                    <input
+                        name="email"
+                        type="email"
+                        value={form.email}
+                        onChange={handleChange}
+                        placeholder="Email Address"
+                        required
+                    />
+                    <textarea
+                        name="message"
+                        value={form.message}
+                        onChange={handleChange}
+                        placeholder="Your Message"
+                        rows="4"
+                        required
+                    />
                     <button type="submit" disabled={loading}>
                         {loading ? "Opening WhatsApp..." : "Send Message via WhatsApp"}
                     </button>
