@@ -1,0 +1,26 @@
+# =========================================================
+# 🤖 NYC LUX RIDES — Robots.txt
+# Controls how search engines crawl and index your website
+# =========================================================
+
+User-agent: *
+Allow: /
+
+# Block sensitive or non-SEO folders
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /server/
+Disallow: /src/
+
+# Crawl-delay helps prevent server overload (optional)
+Crawl-delay: 5
+
+# Point to your sitemap for faster indexing
+Sitemap: https://www.nycluxride.com/sitemap.xml
+
+# Contact / brand info
+# NYC Lux Rides - Premium Luxury Rides
+# Your luxury journey starts the moment we open the door.
+# Phone: +1 (929)-462-2366
+# Website: https://www.nycluxride.com
