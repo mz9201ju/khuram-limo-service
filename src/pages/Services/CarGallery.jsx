@@ -8,11 +8,11 @@ const fallbackImage =
 
 const cars = [
     {
-        name: "Doger 1 - Premium Ride",
+        name: "",
         img: doger1
     },
     {
-        name: "Doger 2 - Premium Ride",
+        name: "",
         img: doger2
     },
 ];
