@@ -1,5 +1,6 @@
 import { useState } from "react";
 import doger1 from "../../assets/doger1.jpg";
+import doger2 from "../../assets/doger2.jpg";
 import "./CarGallery.css";
 
 const fallbackImage =
@@ -9,6 +10,10 @@ const cars = [
     {
         name: "Doger 1 - Premium Ride",
         img: doger1
+    },
+    {
+        name: "Doger 2 - Premium Ride",
+        img: doger2
     },
 ];
 
