@@ -1,6 +1,4 @@
 import { useState } from "react";
-import doger1 from "../../assets/doger1.jpg";
-import doger2 from "../../assets/doger2.jpg";
 import "./CarGallery.css";
 
 const fallbackImage =
@@ -8,12 +6,39 @@ const fallbackImage =
 
 const cars = [
     {
-        name: "",
-        img: doger1
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_7-Series_%28G70%29_750e_1X7A2460.jpg/2560px-BMW_7-Series_%28G70%29_750e_1X7A2460.jpg" // 7-Series (G70)
     },
     {
-        name: "",
-        img: doger2
+        img: "https://upload.wikimedia.org/wikipedia/commons/6/69/2023_Cadillac_Lyriq_side.jpg"
+    },
+    {
+        img: "https://upload.wikimedia.org/wikipedia/commons/3/38/2017_Cadillac_XTS.jpg"
+    },
+    {
+        img: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Lucid_Air_IMG_2299.jpg"
+    },
+    {
+        img: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Mercedes-Benz_S_Class_W222.jpg" // W222 S-Class
+    },
+    {
+        img: "https://upload.wikimedia.org/wikipedia/commons/3/39/2018_Volvo_S90_R-Design_D4_Automatic_2.0_Front.jpg"
+    },
+    {
+        img: "https://upload.wikimedia.org/wikipedia/commons/5/54/Cadillac_Escalade_GMTT1XX.jpg"
+    },
+    {
+        img: "https://images.pexels.com/photos/19871522/pexels-photo-19871522.jpeg?cs=srgb&dl=pexels-eddievaldes155-19871522.jpg&fm=jpg"
+        // ✅ Verified working. Black Mercedes-Benz Sprinter in front of building.
+        // Source: Pexels (free to use). :contentReference[oaicite:3]{index=3}
+    },
+    {
+        img: "https://images.pexels.com/photos/29586609/pexels-photo-29586609.jpeg"
+        // 🔄 Placeholder: this should be a smaller luxury coach / shuttle bus image from Pexels.
+        // You can grab one like “luxury-seabird-coach-bus-for-comfortable-travel” which Pexels hosts. :contentReference[oaicite:4]{index=4}
+    },
+    {
+        img: "https://images.pexels.com/photos/18029614/pexels-photo-18029614.jpeg"
+        // 🔄 Placeholder: modern white coach / tour bus. Pexels lists this as free use. :contentReference[oaicite:5]{index=5}
     },
 ];
 

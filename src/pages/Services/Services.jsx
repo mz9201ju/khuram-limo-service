@@ -32,6 +32,7 @@ export default function Services() {
     return (
         <section className="services-section">
             <h2 className="section-title">Our Luxury Services</h2>
+            <CarGallery />
             <div className="service-grid">
                 {serviceData.map((service, i) => (
                     <div key={i} className="service-card">
@@ -40,7 +41,6 @@ export default function Services() {
                     </div>
                 ))}
             </div>
-            <CarGallery />
         </section>
     );
 }
