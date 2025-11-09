@@ -30,10 +30,10 @@ export default function Home() {
     // CTA handler: route to Contact page
     const handleBookNow = useCallback(() => {
         if (typeof navigate === "function") {
-            navigate("/contact", { replace: false });
+            navigate("/checkout", { replace: false });
             window.scrollTo({ top: 0, behavior: "smooth" });
         } else {
-            window.location.href = "/contact";
+            window.location.href = "/checkout";
         }
     }, [navigate]);
 
