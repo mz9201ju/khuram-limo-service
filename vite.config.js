@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  base: '/',   // <--- add this
+  base: '/khuram-limo-service/',   // <--- add this
   plugins: [react()],
   build: {
     assetsDir: 'assets',
