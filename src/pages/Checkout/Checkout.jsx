@@ -121,7 +121,7 @@ export default function Checkout() {
                         window.open("https://customer.moovs.app/nyc-lux-ride/request/new", "_blank")
                     }
                 >
-                    Book with Moovs
+                    Book Now!
                 </button>
             </div>
         </div>

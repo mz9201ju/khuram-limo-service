@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import background1 from "../../assets/luxury1.gif";
 import background2 from "../../assets/luxury2.gif";
@@ -16,7 +15,6 @@ const FALLBACK =
     "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'%3E%3Crect width='100%25' height='100%25' fill='%230a0a0a'/%3E%3Ctext x='50%25' y='50%25' dy='.35em' font-family='Arial,Helvetica,sans-serif' font-size='28' fill='%23bdbdbd' text-anchor='middle'%3EImage unavailable%3C/text%3E%3C/svg%3E";
 
 export default function Home() {
-    const navigate = useNavigate();
 
     // slideshow state
     const [index, setIndex] = useState(0);
@@ -28,14 +26,12 @@ export default function Home() {
     const fadeDurationMs = 1400; // crossfade duration (longer = smoother)
 
     // CTA handler: route to Contact page
+    // CTA handler: open Moovs booking page in new tab
     const handleBookNow = useCallback(() => {
-        if (typeof navigate === "function") {
-            navigate("/checkout", { replace: false });
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        } else {
-            window.location.href = "/checkout";
-        }
-    }, [navigate]);
+        const moovsUrl = "https://customer.moovs.app/nyc-lux-ride/request/new";
+        window.open(moovsUrl, "_blank");
+    }, []);
+
 
     const prefetchContactAssets = () => {
         const img = new Image();
