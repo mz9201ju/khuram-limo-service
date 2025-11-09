@@ -25,3 +25,34 @@
     width: 320px;
     max-width: 90%;
 }
+
+.moovs-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.moovs-button {
+    background-color: #007bff;
+    /* Blue button */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 90%;
+    max-width: 300px;
+}
+
+.moovs-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+    .moovs-button {
+        width: auto;
+    }
+}

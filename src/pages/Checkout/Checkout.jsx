@@ -2,12 +2,11 @@ import { useEffect } from "react";
 import "./Checkout.css";
 
 const SANDBOX_CLIENT_ID =
-    import.meta.env.VITE_PAYPAL_CLIENT_ID ||
-    "";
+    import.meta.env.VITE_PAYPAL_CLIENT_ID || "";
 const SQUARE_APPLICATION_ID = import.meta.env.VITE_SQUARE_APPLICATION_ID || ""; // Replace with your Square application ID
 
 export default function Checkout() {
-    useEffect(() => {
+    /* useEffect(() => {
         const WORKER_URL = "https://paypal-worker.omer-mnsu.workers.dev";
 
         // Load PayPal SDK once per session
@@ -60,7 +59,7 @@ export default function Checkout() {
             paypal
                 .Buttons({
                     style: { shape: "pill", color: "gold", layout: "vertical", label: "paypal" },
-                    fundingSource: undefined, // Show all buttons (PayPal, Card, Pay Later, Apple Pay)
+                    fundingSource: undefined,
                     createOrder: async () => {
                         const res = await fetch(`${WORKER_URL}/create-order`, {
                             method: "POST",
@@ -73,7 +72,6 @@ export default function Checkout() {
                     },
                     onApprove: async (data) => {
                         console.log("✅ Payment approved:", data);
-                        // Auto-capture through worker
                         const capture = await fetch(`${WORKER_URL}/capture-order`, {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
@@ -82,7 +80,6 @@ export default function Checkout() {
                         const capData = await capture.json();
                         console.log("💰 Capture result:", capData);
 
-                        // Ensure payment is captured before redirect
                         if (capData.status === "COMPLETED") {
                             console.log("✅ Payment successfully captured.");
                             window.location.href = "https://mz9201ju.github.io/khuram-limo-service/success.html";
@@ -99,7 +96,6 @@ export default function Checkout() {
                 .render(container);
         }
 
-        // Cleanup on route change
         return () => {
             const container = document.getElementById("paypal-button-container");
             if (container) container.innerHTML = "";
@@ -107,14 +103,27 @@ export default function Checkout() {
             const squareButtonContainer = document.getElementById("square-button-container");
             if (squareButtonContainer) squareButtonContainer.innerHTML = "";
         };
-    }, []);
+    }, []); */
 
     return (
         <div className="checkout-page">
             <h1>Complete Your Booking</h1>
-            <p>Secure your luxury ride with PayPal, Apple Pay, and Square below.</p>
+            <p>Secure your luxury ride with Moovs App</p>
+
             <div id="paypal-button-container" className="paypal-container"></div>
             <div id="square-button-container" className="square-container"></div>
+
+            {/* 🚗 Book with Moovs Button */}
+            <div className="moovs-container">
+                <button
+                    className="moovs-button"
+                    onClick={() =>
+                        window.open("https://customer.moovs.app/nyc-lux-ride/request/new", "_blank")
+                    }
+                >
+                    Book with Moovs
+                </button>
+            </div>
         </div>
     );
 }
