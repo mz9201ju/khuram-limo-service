@@ -200,3 +200,21 @@ button[type="submit"]:hover {
         padding: 1rem;
     }
 }
+
+/* === iPhone Safari fix for date/time inputs === */
+@supports (-webkit-touch-callout: none) {
+
+    /* Targets iOS Safari */
+    .ride-row input[type="date"],
+    .ride-row input[type="time"] {
+        width: 100% !important;
+        flex: 1 1 100% !important;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 600px) {
+    .ride-row {
+        flex-direction: column;
+    }
+}
