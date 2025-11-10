@@ -115,6 +115,9 @@ export default function Home() {
                     <a className="learn-btn" href="#/services" aria-label="See our fleet">
                         See Fleet
                     </a>
+                    <a className="learn-btn" href="#/contact" aria-label="See our fleet">
+                        Contact Us
+                    </a>
                 </div>
 
                 <div className="trust-row" aria-hidden="true">

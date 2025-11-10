@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Contact.css";
-import heroImg from "../../assets/logo.png";
+import heroImg from "../../assets/logo2.png";
 
 const WORKER_URL =
     import.meta.env.VITE_WHATS_URL ||

@@ -33,7 +33,7 @@ export default function Footer() {
 
                 {/* Copyright */}
                 <p className="text-sm text-gray-400">
-                    © {year} NYC LUX RIDES. All rights reserved.
+                    © {year} NYC LUX RIDE. All rights reserved.
                 </p>
             </div>
         </footer>
