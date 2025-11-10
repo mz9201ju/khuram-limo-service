@@ -82,9 +82,21 @@
   <!-- 🗺️ Sitemap & Robots -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
+  <!-- ============================= -->
+  <!-- 📊 Google Analytics -->
+  <!-- ============================= -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E8TVXNG39V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-E8TVXNG39V');
+  </script>
+
   <!-- 🏷️ Title -->
-  <title>NYC LUX RIDE | Premium Luxury Ride – Chauffeur & Airport Limo NYC</title>
-  
+  <title>NYC LUX RIDE | Premium Luxury Rides</title>
+
   <!-- ✨ Structured Data: NYC LUX RIDE Services -->
   <script type="application/ld+json">
 {
@@ -172,34 +184,17 @@
         "availability": "https://schema.org/InStock"
       }
     ]
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "136",
-    "bestRating": "5",
-    "worstRating": "4"
-  },
-  "review": [
-    {
-      "@type": "Review",
-      "author": { "@type": "Person", "name": "Daniel Carter" },
-      "reviewBody": "Absolutely seamless ride from JFK to Manhattan — clean car, professional chauffeur, and luxury all the way.",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-    },
-    {
-      "@type": "Review",
-      "author": { "@type": "Person", "name": "Sophia Martinez" },
-      "reviewBody": "Best limo service in NYC! They’re always on time, and the cars are spotless and elegant.",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-    }
-  ]
+  }
 }
 </script>
 
 </head>
 
 <body class="bg-black text-white">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCS9CRZJ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
