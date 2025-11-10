@@ -1,5 +1,5 @@
 # =========================================================
-# 🤖 NYC LUX RIDES — Robots.txt
+# 🤖 NYC LUX RIDE — Robots.txt
 # Controls how search engines crawl and index your website
 # =========================================================
 
@@ -97,7 +97,7 @@ Host: www.nycluxride.com
 # =========================================================
 # 💼 CONTACT / BRAND INFO
 # =========================================================
-# NYC Lux Rides - Premium Luxury Rides
+# NYC Lux Ride - Premium Luxury Rides
 # "Your luxury journey starts the moment we open the door."
 # Phone: +1 (929)-462-2366
 # Website: https://www.nycluxride.com
