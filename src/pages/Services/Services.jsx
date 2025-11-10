@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import CarGallery from "./CarGallery";
 import "./Services.css";
 
@@ -29,6 +30,10 @@ const serviceData = [
 ];
 
 export default function Services() {
+    const handleBookNow = useCallback(() => {
+        const moovsUrl = "https://customer.moovs.app/nyc-lux-ride/request/new";
+        window.open(moovsUrl, "_blank");
+    }, []);
     return (
         <section className="services-section">
             <h2 className="section-title">Our Luxury Services</h2>
@@ -41,6 +46,9 @@ export default function Services() {
                     </div>
                 ))}
             </div>
+            <button className="book-btn-cover-div" onClick={handleBookNow}>
+                Book Now!
+            </button>
         </section>
     );
 }

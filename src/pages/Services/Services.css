@@ -81,3 +81,27 @@
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
 }
+
+.book-btn-cover-div {
+    appearance: none;
+    border: 0;
+    background: linear-gradient(90deg, #d4af37 0%, #b68b2f 100%);
+    /* gold vibe */
+    color: #071017;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 999px;
+    box-shadow: 0 10px 26px rgba(182, 139, 47, 0.18);
+    cursor: pointer;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+    font-size: 1rem;
+    margin: 1pc;
+}
+
+/* CTA hover & focus */
+.book-btn-cover-div:hover,
+.book-btn-cover-div:focus {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(182, 139, 47, 0.28);
+    outline: none;
+}
