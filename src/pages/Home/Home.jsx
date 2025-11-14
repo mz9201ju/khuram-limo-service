@@ -22,7 +22,7 @@ export default function Home() {
     const [imgError, setImgError] = useState({}); // track errors per index
 
     // timing (tweak these)
-    const intervalMs = 6000; // duration each slide stays
+    const intervalMs = 3200; // duration each slide stays
     const fadeDurationMs = 1400; // crossfade duration (longer = smoother)
 
     // CTA handler: route to Contact page
