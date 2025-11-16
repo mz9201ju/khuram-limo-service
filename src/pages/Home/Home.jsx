@@ -17,14 +17,14 @@ export default function Home() {
 
             {/* 🎥 VIDEO BACKGROUND */}
             <video
-                src="https://www.nycluxride.com/video.mp4"
+                src="https://www.nycluxride.com/video.mp4s"
                 autoPlay
                 muted
                 loop
                 playsInline
                 preload="auto"
                 className="video-element"
-                style={{ background: "red" }}
+                style={{ background: "black" }}
             />
 
 
