@@ -101,7 +101,7 @@ export default function Navbar() {
                         </a>
                         <div className="flex gap-3 text-gray-300 text-lg">
                             <a
-                                href="https://www.instagram.com"
+                                href="https://www.instagram.com/nycluxride/"
                                 target="_blank"
                                 rel="noreferrer"
                                 className="hover:text-gold transition"
@@ -109,28 +109,12 @@ export default function Navbar() {
                                 <i className="fab fa-instagram"></i>
                             </a>
                             <a
-                                href="https://www.linkedin.com"
+                                href="https://www.tiktok.com/@nycluxride.com"
                                 target="_blank"
                                 rel="noreferrer"
                                 className="hover:text-gold transition"
                             >
-                                <i className="fab fa-linkedin"></i>
-                            </a>
-                            <a
-                                href="https://twitter.com"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="hover:text-gold transition"
-                            >
-                                <i className="fab fa-twitter"></i>
-                            </a>
-                            <a
-                                href="https://facebook.com"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="hover:text-gold transition"
-                            >
-                                <i className="fab fa-facebook"></i>
+                                <i className="fab fa-tiktok"></i>
                             </a>
                         </div>
                     </div>
@@ -171,7 +155,7 @@ export default function Navbar() {
                     </a>
                     <div className="flex justify-center gap-5 py-3 text-lg">
                         <a
-                            href="https://instagram.com"
+                            href="https://www.instagram.com/nycluxride/"
                             target="_blank"
                             rel="noreferrer"
                             className="text-gray-300 hover:text-gold transition"
@@ -179,28 +163,12 @@ export default function Navbar() {
                             <i className="fab fa-instagram"></i>
                         </a>
                         <a
-                            href="https://linkedin.com"
+                            href="https://www.tiktok.com/@nycluxride.com"
                             target="_blank"
                             rel="noreferrer"
                             className="text-gray-300 hover:text-gold transition"
                         >
-                            <i className="fab fa-linkedin"></i>
-                        </a>
-                        <a
-                            href="https://twitter.com"
-                            target="_blank"
-                            rel="noreferrer"
-                            className="text-gray-300 hover:text-gold transition"
-                        >
-                            <i className="fab fa-twitter"></i>
-                        </a>
-                        <a
-                            href="https://facebook.com"
-                            target="_blank"
-                            rel="noreferrer"
-                            className="text-gray-300 hover:text-gold transition"
-                        >
-                            <i className="fab fa-facebook"></i>
+                            <i className="fab fa-tiktok"></i>
                         </a>
                     </div>
                 </nav>
