@@ -1,50 +1,76 @@
-/* Home hero — cinematic luxury look */
+/* ================================
+   🎥 HERO WITH VIDEO BACKGROUND
+   ================================ */
+
 .home-hero {
     position: relative;
-    min-height: 70vh;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    background-size: cover;
-    background-position: center 30%;
-    background-attachment: fixed;
-    /* subtle parallax on desktop */
-    color: #fff;
+
     overflow: hidden;
-    padding: 3rem 1rem;
+    color: #fff;
+
+    /* 💥 FORCE it to break any parent layout */
+    flex-direction: column !important;
 }
 
-/* darkening overlay for readable text */
+/* Video container */
+.video-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2;
+}
+
+/* Actual MP4 video */
+.video-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+
+    object-fit: cover;
+    object-position: center;
+
+    filter: brightness(0.45);
+}
+
+/* dark overlay above video */
 .home-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.60) 60%);
-    z-index: 0;
-    backdrop-filter: blur(0.6px);
+    background: rgba(0, 0, 0, 0.45);
+    z-index: -1;
 }
 
-/* centered content container */
+/* content above everything */
 .home-content {
     position: relative;
-    z-index: 2;
+    z-index: 10;
     max-width: 1100px;
     width: 100%;
     text-align: center;
     padding: 2rem;
-    margin: 0 auto;
-    animation: fadeInUp 700ms cubic-bezier(.2, .9, .2, 1);
 }
 
-/* headline */
+/* heading */
 .home-title {
     font-size: clamp(1.8rem, 4.5vw, 3.2rem);
-    margin: 0;
     font-weight: 700;
-    letter-spacing: -0.5px;
+    margin: 0;
     text-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
 }
 
-/* subtext */
+/* sub line */
 .home-sub {
     margin-top: 0.8rem;
     color: rgba(255, 255, 255, 0.9);
@@ -61,47 +87,44 @@
     display: flex;
     gap: 12px;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
 }
 
-/* primary CTA */
+/* Primary button */
 .book-btn {
-    appearance: none;
-    border: 0;
-    background: linear-gradient(90deg, #d4af37 0%, #b68b2f 100%);
-    /* gold vibe */
+    border: none;
+    background: linear-gradient(90deg, #d4af37, #b68b2f);
     color: #071017;
     font-weight: 700;
     padding: 14px 28px;
     border-radius: 999px;
     box-shadow: 0 10px 26px rgba(182, 139, 47, 0.18);
     cursor: pointer;
-    transition: transform 180ms ease, box-shadow 180ms ease;
     font-size: 1rem;
+    transition: 0.25s ease;
 }
 
-/* CTA hover & focus */
-.book-btn:hover,
-.book-btn:focus {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(182, 139, 47, 0.28);
-    outline: none;
+.book-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(182, 139, 47, 0.32);
 }
 
-/* secondary link */
+/* secondary CTAs */
 .learn-btn {
-    display: inline-block;
     color: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 12px 20px;
     border-radius: 999px;
     text-decoration: none;
-    transition: background 180ms ease, color 180ms;
     font-weight: 600;
+    transition: 0.25s ease;
 }
 
-/* trust row under CTA */
+.learn-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* trust row */
 .trust-row {
     margin-top: 1rem;
     color: rgba(255, 255, 255, 0.75);
@@ -112,7 +135,7 @@
     align-items: center;
 }
 
-/* small animation */
+/* Fade animation */
 @keyframes fadeInUp {
     from {
         transform: translateY(12px);
@@ -125,169 +148,15 @@
     }
 }
 
-/* responsive adjustments */
+/* Mobile */
 @media (max-width: 720px) {
     .home-hero {
-        min-height: 56vh;
-        background-attachment: scroll;
+        height: 85vh;
     }
 
-    .book-btn {
-        width: 100%;
-        max-width: 360px;
-    }
-
+    .book-btn,
     .learn-btn {
         width: 100%;
         max-width: 360px;
-        text-align: center;
-    }
-
-    .home-content {
-        padding: 1.25rem;
-    }
-}
-
-/* put in Home.css (or CarGallery.css if you prefer) */
-
-/* container should be positioned relative to hold the pseudo-element */
-.home-content {
-    position: relative;
-    z-index: 2;
-    /* text above background */
-    overflow: visible;
-}
-
-/* background layer behind content */
-.home-content::before {
-    content: "";
-    position: absolute;
-    inset: -10%;
-    z-index: -1;
-    background-size: cover;
-    background-position: center 35%;
-    background-repeat: no-repeat;
-    /* 💡 Brightened and richer colors */
-    filter: brightness(0.45) contrast(1.05) saturate(0.9);
-    transform-origin: center;
-    will-change: transform, opacity;
-    border-radius: 12px;
-    transform: scale(1);
-    animation: kb-zoom 16s ease-in-out infinite alternate;
-    transition: opacity 300ms ease;
-}
-
-/* Ken Burns keyframes: slow zoom + micro-pan */
-@keyframes kb-zoom {
-    0% {
-        transform: scale(1) translateY(0);
-        background-position: center 30%;
-    }
-
-    50% {
-        transform: scale(1.05) translateY(-2%);
-        background-position: center 20%;
-    }
-
-    100% {
-        transform: scale(1.08) translateY(-4%);
-        background-position: center 15%;
-    }
-}
-
-/* respect preference for reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    .home-content::before {
-        animation: none;
-        transform: scale(1.02);
-    }
-}
-
-/* ensure container anchors absolutely-positioned bg layers */
-.home-hero {
-    position: relative;
-    /* so background absolute children anchor correctly */
-    overflow: hidden;
-    /* ensures images never spill outside the hero */
-}
-
-/* wrapper for background imgs */
-.bg-wrap {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    /* behind overlay (overlay should have z-index:1, content 2) */
-    pointer-events: none;
-    overflow: hidden;
-    /* double-safety */
-}
-
-/* base style for background image layers */
-.bg-layer {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-    transition: opacity 1.4s ease-in-out, transform 18s linear;
-    transform: scale(1.02);
-    will-change: opacity, transform;
-    /* 💡 Brighter, more natural tones */
-    filter: brightness(0.85) contrast(1.1) saturate(1.15);
-    opacity: 0;
-    z-index: 0;
-}
-
-/* active slide visible */
-.bg-current {
-    opacity: 1;
-    z-index: 0;
-}
-
-/* previous slide fades out with keyframe on mount */
-.bg-prev {
-    opacity: 1;
-    z-index: 1;
-    animation-name: fadeOut;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-    /* animation-duration is injected inline from JSX to keep sync */
-}
-
-/* smoother fade keyframes */
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-        transform: scale(1.02);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(1.05);
-        /* very subtle extra zoom while fading */
-    }
-}
-
-/* ensure overlay sits above backgrounds but below content */
-.home-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.60));
-    z-index: 1;
-}
-
-/* content above everything */
-.home-content {
-    position: relative;
-    z-index: 2;
-}
-
-/* reduced-motion respect */
-@media (prefers-reduced-motion: reduce) {
-    .bg-layer {
-        transition: none !important;
-        transform: none !important;
-        animation: none !important;
     }
 }

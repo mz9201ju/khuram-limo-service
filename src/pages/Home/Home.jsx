@@ -1,104 +1,42 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback } from "react";
 import "./Home.css";
-import background1 from "../../assets/luxury1.gif";
-import background2 from "../../assets/luxury2.gif";
-
-/**
- * Slide images - replace with your hosted assets for production
- */
-const slideImages = [
-    background2,
-    background1,
-];
-
-const FALLBACK =
-    "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'%3E%3Crect width='100%25' height='100%25' fill='%230a0a0a'/%3E%3Ctext x='50%25' y='50%25' dy='.35em' font-family='Arial,Helvetica,sans-serif' font-size='28' fill='%23bdbdbd' text-anchor='middle'%3EImage unavailable%3C/text%3E%3C/svg%3E";
 
 export default function Home() {
 
-    // slideshow state
-    const [index, setIndex] = useState(0);
-    const [prevIndex, setPrevIndex] = useState(null);
-    const [imgError, setImgError] = useState({}); // track errors per index
-
-    // timing (tweak these)
-    const intervalMs = 3200; // duration each slide stays
-    const fadeDurationMs = 1400; // crossfade duration (longer = smoother)
-
-    // CTA handler: route to Contact page
-    // CTA handler: open Moovs booking page in new tab
     const handleBookNow = useCallback(() => {
-        const moovsUrl = "https://customer.moovs.app/nyc-lux-ride/request/new";
-        window.open(moovsUrl, "_blank");
+        window.open("https://customer.moovs.app/nyc-lux-ride/request/new", "_blank");
     }, []);
-
 
     const prefetchContactAssets = () => {
         const img = new Image();
-        img.src = "/assets/logo.png"; // swap if you have a real path
-    };
-
-    // Advance slideshow every X ms
-    useEffect(() => {
-        const tick = () => {
-            setPrevIndex(index);
-            setIndex((i) => (i + 1) % slideImages.length);
-            // clear prev after fade completes
-            setTimeout(() => setPrevIndex(null), fadeDurationMs);
-        };
-
-        const t = setInterval(tick, intervalMs);
-        return () => clearInterval(t);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [index]);
-
-    // preload next image
-    useEffect(() => {
-        const next = (index + 1) % slideImages.length;
-        const img = new Image();
-        img.src = slideImages[next];
-    }, [index]);
-
-    const handleImgError = (i) => {
-        setImgError((s) => ({ ...s, [i]: true }));
+        img.src = "/assets/logo.png";
     };
 
     return (
         <section className="home-hero" aria-label="Luxury limo service hero">
-            {/* BACKGROUND LAYERS - IMG elements so we can detect load errors */}
-            <div className="bg-wrap" aria-hidden="true">
-                {/* current image */}
-                <img
-                    className="bg-layer bg-current"
-                    src={imgError[index] ? FALLBACK : slideImages[index]}
-                    alt=""
-                    onError={() => handleImgError(index)}
-                    draggable={false}
-                    style={{ transitionDuration: `${fadeDurationMs}ms` }}
-                />
 
-                {/* previous image (for crossfade) */}
-                {prevIndex !== null && (
-                    <img
-                        className="bg-layer bg-prev"
-                        src={imgError[prevIndex] ? FALLBACK : slideImages[prevIndex]}
-                        alt=""
-                        onError={() => handleImgError(prevIndex)}
-                        draggable={false}
-                        // pass fadeDuration so CSS animation matches JS timer
-                        style={{ animationDuration: `${fadeDurationMs}ms` }}
-                    />
-                )}
-            </div>
+            {/* 🎥 VIDEO BACKGROUND */}
+            <video
+                src="https://www.nycluxride.com/video.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="video-element"
+                style={{ background: "red" }}
+            />
 
-            {/* your existing overlay + content */}
+
+            {/* overlay */}
             <div className="home-overlay" />
 
+            {/* content */}
             <div className="home-content">
                 <h1 className="home-title">Arrive in Style</h1>
                 <p className="home-sub">
-                    White-glove chauffeurs, immaculate fleet, and tailored hospitality — your
-                    luxury journey starts the moment we open the door.
+                    White-glove chauffeurs, immaculate fleet, and tailored hospitality —
+                    your luxury journey starts the moment we open the door.
                 </p>
 
                 <div className="home-cta-row">
@@ -106,21 +44,16 @@ export default function Home() {
                         className="book-btn"
                         onClick={handleBookNow}
                         onMouseEnter={prefetchContactAssets}
-                        onFocus={prefetchContactAssets}
                         aria-label="Book luxury car service now"
                     >
                         Book Now
                     </button>
 
-                    <a className="learn-btn" href="#/services" aria-label="See our fleet">
-                        See Fleet
-                    </a>
-                    <a className="learn-btn" href="#/contact" aria-label="See our fleet">
-                        Contact Us
-                    </a>
+                    <a className="learn-btn" href="#/services">See Fleet</a>
+                    <a className="learn-btn" href="#/contact">Contact Us</a>
                 </div>
 
-                <div className="trust-row" aria-hidden="true">
+                <div className="trust-row">
                     <span>⭐ 5/5 Customer Rating</span>
                     <span>•</span>
                     <span>Professional Chauffeurs</span>
