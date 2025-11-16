@@ -17,7 +17,7 @@ export default function Home() {
 
             {/* 🎥 VIDEO BACKGROUND */}
             <video
-                src="https://www.nycluxride.com/video.mp4s"
+                src="https://www.nycluxride.com/video.mp4"
                 autoPlay
                 muted
                 loop
