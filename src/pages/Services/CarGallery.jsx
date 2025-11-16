@@ -10,7 +10,8 @@ const fallbackImage =
 const cars = [
     { img: car1 },
     { img: car2 },
-    { img: car3 }
+    { img: car3 },
+    { img: car4 }
 ];
 
 export default function CarGallery() {
@@ -30,11 +31,6 @@ export default function CarGallery() {
                         />
                     </div>
                 ))}
-
-                {/* Add your Escalade card into the grid */}
-                <div className="cg-card">
-                    <img src={car4} className="cg-image" loading="lazy" />
-                </div>
             </div>
         </div>
     );
