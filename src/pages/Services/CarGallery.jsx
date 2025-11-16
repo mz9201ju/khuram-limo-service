@@ -8,10 +8,10 @@ const fallbackImage =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Car_icon.svg/1024px-Car_icon.svg.png";
 
 const cars = [
+    { img: car4 },
     { img: car1 },
     { img: car2 },
     { img: car3 },
-    { img: car4 }
 ];
 
 export default function CarGallery() {
