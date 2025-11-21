@@ -4,14 +4,14 @@ import { resolve } from "path";
 
 export default defineConfig({
   plugins: [react()],
-
   build: {
     rollupOptions: {
       input: {
-        home: resolve(__dirname, "public/index.html"),
-        services: resolve(__dirname, "public/services.html"),
-        contact: resolve(__dirname, "public/contact.html"),
-      }
-    }
-  }
+        home: resolve(__dirname, "home.html"),
+        services: resolve(__dirname, "services.html"),
+        contact: resolve(__dirname, "contact.html"),
+        // add more pages here
+      },
+    },
+  },
 });
