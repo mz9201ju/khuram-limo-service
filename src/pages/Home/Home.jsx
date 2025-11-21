@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 export default function Home() {
@@ -49,8 +50,8 @@ export default function Home() {
                         Book Now
                     </button>
 
-                    <a className="learn-btn" href="/services.html">See Fleet</a>
-                    <a className="learn-btn" href="/contact.html">Contact Us</a>
+                    <Link className="learn-btn" to="/services.html">See Fleet</Link>
+                    <Link className="learn-btn" to="/contact.html">Contact Us</Link>
                 </div>
 
                 <div className="trust-row">
