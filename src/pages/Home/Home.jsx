@@ -49,8 +49,8 @@ export default function Home() {
                         Book Now
                     </button>
 
-                    <a className="learn-btn" href="/services">See Fleet</a>
-                    <a className="learn-btn" href="/contact">Contact Us</a>
+                    <a className="learn-btn" href="/services.html">See Fleet</a>
+                    <a className="learn-btn" href="/contact.html">Contact Us</a>
                 </div>
 
                 <div className="trust-row">
