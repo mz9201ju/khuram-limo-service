@@ -33,61 +33,54 @@
     <priority>0.8</priority>
   </url>
 
-  <url>
-    <loc>https://www.nycluxride.com/about</loc>
-    <lastmod>2025-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
 
   <!-- ============================= -->
   <!-- SERVICES (Static HTML) -->
   <!-- ============================= -->
   <url>
-    <loc>https://www.nycluxride.com/airport-car-service.html</loc>
+    <loc>https://www.nycluxride.com/airport-car-service</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.nycluxride.com/corporate-transportation.html</loc>
+    <loc>https://www.nycluxride.com/corporate-transportation</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.nycluxride.com/hourly-chauffeur.html</loc>
+    <loc>https://www.nycluxride.com/hourly-chauffeur</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.nycluxride.com/point-to-point.html</loc>
+    <loc>https://www.nycluxride.com/point-to-point</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.nycluxride.com/prom-limo.html</loc>
+    <loc>https://www.nycluxride.com/prom-limo</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.nycluxride.com/vip-black-car.html</loc>
+    <loc>https://www.nycluxride.com/vip-black-car</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.nycluxride.com/wedding-limo.html</loc>
+    <loc>https://www.nycluxride.com/wedding-limo</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -98,28 +91,28 @@
   <!-- AIRPORT PAGES -->
   <!-- ============================= -->
   <url>
-    <loc>https://www.nycluxride.com/jfk-limo.html</loc>
+    <loc>https://www.nycluxride.com/jfk-limo</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
-    <loc>https://www.nycluxride.com/ewr-limo.html</loc>
+    <loc>https://www.nycluxride.com/ewr-limo</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
-    <loc>https://www.nycluxride.com/lga-limo.html</loc>
+    <loc>https://www.nycluxride.com/lga-limo</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
-    <loc>https://www.nycluxride.com/teterboro-limo.html</loc>
+    <loc>https://www.nycluxride.com/teterboro-limo</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
@@ -130,56 +123,56 @@
   <!-- LOCATION PAGES -->
   <!-- ============================= -->
   <url>
-    <loc>https://www.nycluxride.com/manhattan.html</loc>
+    <loc>https://www.nycluxride.com/manhattan</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.nycluxride.com/brooklyn.html</loc>
+    <loc>https://www.nycluxride.com/brooklyn</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.nycluxride.com/queens.html</loc>
+    <loc>https://www.nycluxride.com/queens</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.nycluxride.com/bronx.html</loc>
+    <loc>https://www.nycluxride.com/bronx</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.nycluxride.com/staten-island.html</loc>
+    <loc>https://www.nycluxride.com/staten-island</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.nycluxride.com/long-island.html</loc>
+    <loc>https://www.nycluxride.com/long-island</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.88</priority>
   </url>
 
   <url>
-    <loc>https://www.nycluxride.com/connecticut.html</loc>
+    <loc>https://www.nycluxride.com/connecticut</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://www.nycluxride.com/new-jersey.html</loc>
+    <loc>https://www.nycluxride.com/new-jersey</loc>
     <lastmod>2025-11-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
