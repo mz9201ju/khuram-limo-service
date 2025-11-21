@@ -18,6 +18,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: 🧾 Checkout repository
         uses: actions/checkout@v4
@@ -26,28 +27,31 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
 
-      - name: 📦 Install dependencies (with cache)
+      - name: 📦 Install dependencies
         run: npm ci --prefer-offline
 
       - name: 🏗️ Build Vite project
-        # Inject the VITE_* secrets into the build environment so Vite will replace import.meta.env.VITE_*
         env:
           VITE_WHATS_SECRET: ${{ secrets.VITE_WHATS_SECRET }}
           VITE_PAYPAL_CLIENT_ID: ${{ secrets.VITE_PAYPAL_CLIENT_ID }}
         run: npm run build
 
-      - name: 🪄 Add 404 fallback for SPA routing
-        run: cp dist/index.html dist/404.html
+      # 🔥 IMPORTANT FOR MPA: Use home.html as the main entry on GitHub Pages
+      - name: 🪄 Set index.html for GitHub Pages
+        run: |
+          cp dist/home.html dist/index.html
+          cp dist/home.html dist/404.html
+
+      # Prevent GitHub Pages from removing files with underscores
+      - name: ⚙️ Disable Jekyll
+        run: touch dist/.nojekyll
 
       - name: 📤 Upload artifact for deployment
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
-
-      - name: ⚙️ Disable Jekyll
-        run: touch dist/.nojekyll
 
   deploy:
     runs-on: ubuntu-latest
