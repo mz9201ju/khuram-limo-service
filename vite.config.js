@@ -1,26 +1,17 @@
-// vite.config.js
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { resolve } from "path";
 
 export default defineConfig({
-  base: '/',   // <--- add this
   plugins: [react()],
+
   build: {
-    assetsDir: 'assets',
-    assetsInlineLimit: 0,
     rollupOptions: {
-      output: {
-        entryFileNames: 'assets/[name].[hash].js',
-        chunkFileNames: 'assets/[name].[hash].js',
-        assetFileNames: 'assets/[name].[hash].[ext]'
+      input: {
+        home: resolve(__dirname, "public/index.html"),
+        services: resolve(__dirname, "public/services.html"),
+        contact: resolve(__dirname, "public/contact.html"),
       }
     }
-  },
-  server: {
-    historyApiFallback: false,
-    fs: { strict: false },
-  },
-  preview: {
-    historyApiFallback: true, // ✅ Works for vite preview (SPA routing)
-  },
+  }
 });

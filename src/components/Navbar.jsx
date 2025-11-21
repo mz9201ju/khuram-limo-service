@@ -56,8 +56,8 @@ export default function Navbar() {
 
     const navLinks = [
         { to: "/", name: "Home" },
-        { to: "/services", name: "Services" },
-        { to: "/contact", name: "Contact" },
+        { to: "/services.html", name: "Services" },
+        { to: "/contact.html", name: "Contact" },
     ];
 
     return (
