@@ -23,31 +23,39 @@ jobs:
       - name: 🧾 Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🧰 Setup Node.js with cache
+      # 🚫 NO CACHE — Full clean Node setup
+      - name: 🧰 Setup Node.js (NO CACHE)
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm"
+          cache: 'none'
 
-      - name: 📦 Install dependencies
-        run: npm ci --prefer-offline
+      # 🚫 Force clean install — no cache
+      - name: 📦 Install dependencies (NO CACHE)
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install --force
+
+      # 🚫 Delete any existing vite cache
+      - name: 🧼 Clear Vite cache
+        run: rm -rf node_modules/.vite
 
       - name: 🏗️ Build Vite project
         env:
           VITE_WHATS_SECRET: ${{ secrets.VITE_WHATS_SECRET }}
           VITE_PAYPAL_CLIENT_ID: ${{ secrets.VITE_PAYPAL_CLIENT_ID }}
-        run: npm run build
+        run: npm run build -- --force
 
-      # 🔥 IMPORTANT FOR MPA: Use home.html as the main entry on GitHub Pages
+      # 🔥 Set homepage as root entry
       - name: 🪄 Set index.html for GitHub Pages
         run: |
           cp dist/home.html dist/index.html
           cp dist/home.html dist/404.html
 
-      # Prevent GitHub Pages from removing files with underscores
       - name: ⚙️ Disable Jekyll
         run: touch dist/.nojekyll
 
+      # 🚫 GitHub Pages artifact upload has no cache anyway — safe
       - name: 📤 Upload artifact for deployment
         uses: actions/upload-pages-artifact@v3
         with:
@@ -61,6 +69,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: 🚀 Deploy to GitHub Pages
+      - name: 🚀 Deploy to GitHub Pages (NO CACHE)
         id: deployment
         uses: actions/deploy-pages@v4
